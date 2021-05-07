@@ -1,2 +1,0 @@
-# Stuphp
-Study about php.
