@@ -11,11 +11,11 @@
 	}
 	//출력
 	for ($i=0; $i<8; $i++) {
-		echo "$i단 : "
+		echo ($i+1)."단 : ";
 		for ($j=0; $j<9; $j++) {
 		$price = $A[$i] * $a[$j];
-		echo "$price "
+		echo "$price ";
 		}
-		echo "<br>"
+		echo "<br>";
 	}
 ?>
