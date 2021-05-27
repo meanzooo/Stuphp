@@ -4,8 +4,8 @@
 
     $TITLE = $_POST["bookName"];
     $SUBTITLE = $_POST["authorName"];
-    $PRICE = $_POST["detailMemo"];
-    $CONTENT = $_POST["priceSetting"];
+    $PRICE = $_POST["priceSetting"];
+    $CONTENT = $_POST["detailMemo"];
     $WRITER = 2;
     //WRITER 수정 필요
 
