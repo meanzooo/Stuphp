@@ -1,5 +1,6 @@
 <?php
-	$con = mysqli_connect("localhost", "meanzoo", "buyby2020!", "meanzoo");
+//수정필요
+    $con = mysqli_connect("localhost", "meanzoo", "buyby2020!", "meanzoo");
     mysqli_query($con,'SET NAMES utf8');
 
     $bno = $_GET['idx']; //받아온 idx값을 선택해 게시글 삭제
