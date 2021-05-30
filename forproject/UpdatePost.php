@@ -1,5 +1,6 @@
 <?php
-	$con = mysqli_connect("localhost", "meanzoo", "buyby2020!", "meanzoo");
+//수정필요
+    $con = mysqli_connect("localhost", "meanzoo", "buyby2020!", "meanzoo");
     mysqli_query($con,'SET NAMES utf8');
 
     $bno = $_POST['idx']; //$bno에 idx값을 받아와 넣음
