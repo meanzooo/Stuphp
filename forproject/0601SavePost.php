@@ -17,7 +17,6 @@
     $result = mysqli_query($con, $wsql);
     $row = mysqli_fetch_assoc($result);
     $WRITER = $row['userName'];
-    echo $WRITER;
     
     //게시글 등록란
     $sql = "INSERT INTO POST(TITLE,SUBTITLE,PRICE,CONTENT,WRITER) ";
