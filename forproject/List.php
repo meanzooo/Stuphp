@@ -1,6 +1,6 @@
 <?php
 	$con = mysqli_connect("localhost", "meanzoo", "buyby2020!", "meanzoo");
-    mysqli_query($con,'SET NAMES utf8');
+    	mysqli_query($con,'SET NAMES utf8');
 
 	$sql = mq("select * from POST order by POSTNUM desc limit 0,10"); 
             while($board = $sql -> fetch_array()) {
@@ -15,4 +15,6 @@
                 = str_replace($board["TITLE"], mb_substr($board["TITLE"],0,30,"utf-8")."...", $board["TITLE"]);
               	}
             }
+
+	echo json_encode($response);
 ?>
