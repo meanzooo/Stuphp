@@ -1,25 +1,16 @@
 <?php
-    $con = mysqli_connect("localhost", "meanzoo", "buyby2020!", "meanzoo");
-    mysqli_query($con,'SET NAMES utf8');
+	$con = mysqli_connect("localhost", "meanzoo", "buyby2020!", "meanzoo");
+	$result = mysqli_query($con, "SELECT * FROM POST;");
 
-    function mq($sql) {
-    	global $con;
-    	return $con -> query($sql);
-    }
+	$response = array();
 
-	$sql = mq("select * from POST order by POSTNUM desc limit 0,10"); 
-            while($board = $sql -> fetch_array()) {
-            //변수에 DB에서 가져온 값을 저장
-           		$title = $board["TITLE"];
-           		$price = $board["PRICE"];
-           		$writer = $board["WRITER"];
+	while($row = mysqli_fetch_array($result)) {
+	//response["userID"]=$row[0] ....이런식으로 됨.
+			array_push($response, array("TITLE"=>$row[1], "PRICE"=>$row[3], "WRITER"=>$row[5]));
+		}
 
-           		//title이 30을 넘어서면 ... 표시
-            	if(strlen($title)>30) {
-                $title
-                = str_replace($board["TITLE"], mb_substr($board["TITLE"],0,30,"utf-8")."...", $board["TITLE"]);
-              	}
-            }
+	//response라는 변수명으로 JSON 타입으로 $response 내용을 출력
+	echo json_encode(array("response"=>$response));
 
-    echo json_encode($board);
-?> 
+	mysqli_close($con);
+?>
