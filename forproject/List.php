@@ -1,5 +1,5 @@
 <?php
-	$con = mysqli_connect("localhost", "meanzoo", "buyby2020!", "meanzoo");
+    $con = mysqli_connect("localhost", "meanzoo", "buyby2020!", "meanzoo");
     mysqli_query($con,'SET NAMES utf8');
 
     function mq($sql) {
