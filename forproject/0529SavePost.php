@@ -13,12 +13,17 @@
     $CONTENT = $_POST["detailMemo"];
 
     //작성자 로드란
-    $loadwriter
+    $wsql
        = "SELECT userName FROM STD WHERE userID = '$userID' AND userPassword = '$userPassword'";
-    $statement = $con -> prepare($loadwriter);
+    $statement = $con -> prepare($wsql);
     mysqli_stmt_execute($statement);
 
-    $WRITER = $statement;
+    while($row = $statment -> fetch_assoc()){
+        echo $row["userName"];
+//         $writer = $row;
+    }
+
+//     $WRITER = $writer;
     
     // //게시글 등록란
     // $sql = "INSERT INTO POST(TITLE,SUBTITLE,PRICE,CONTENT,WRITER) ";
@@ -30,5 +35,5 @@
     $response = array();
     $response["success"] = true;
  
-    echo print_r($statement);
+//     echo $WRITER;
 ?>
