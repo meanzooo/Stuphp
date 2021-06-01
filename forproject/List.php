@@ -1,6 +1,11 @@
 <?php
 	$con = mysqli_connect("localhost", "meanzoo", "buyby2020!", "meanzoo");
-    	mysqli_query($con,'SET NAMES utf8');
+    mysqli_query($con,'SET NAMES utf8');
+
+    function mq($sql) {
+    	global $con;
+    	return $con -> query($sql);
+    }
 
 	$sql = mq("select * from POST order by POSTNUM desc limit 0,10"); 
             while($board = $sql -> fetch_array()) {
@@ -16,5 +21,5 @@
               	}
             }
 
-	echo json_encode($board);
-?>
+    echo json_encode($board);
+?> 
