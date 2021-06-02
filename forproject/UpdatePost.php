@@ -6,7 +6,7 @@
 		$PRICE = $_POST['변수명'];
 		$CONTENT = $_POST['변수명'];
 		
-		//DB 접속 스크립트를 불러옵니다.
+		//DB 접속 스크립트를 불러옴
 		require_once('db_conn.php');
 		
 		$sql = "UPDATE POST SET TITLE = '$TITLE', SUBTITLE = '$SUBTITLE', PRICE = '$PRICE', CONTENT = $CONTENT WHERE POSTNUM = $POSTNUM;";
