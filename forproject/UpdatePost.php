@@ -1,20 +1,23 @@
-<?php
-//수정필요
-    $con = mysqli_connect("localhost", "meanzoo", "buyby2020!", "meanzoo");
-    mysqli_query($con,'SET NAMES utf8');
-
-    $bno = $_POST['idx']; //$bno에 idx값을 받아와 넣음
-    $userpw = password_hash($_POST['userPassword'], PASSWORD_DEFAULT);
-    //입력받은 패스워드를 해쉬값으로 암호화
-    
-    //받아온 idx값을 선택해서 게시글 수정
-    $sql("Update POST SET TITLE = "$_POST['bookName']", SUBTITLE = "$_POST['authorName']", PRICE = "$_POST['priceSetting']", CONTENT = "$_POST['detailMemo']" WHERE idx = "$bno"");
-    
-    $statement = $con -> prepare($sql);
-    mysqli_stmt_execute($statement);
-
-    $response = array();
-    $response["success"] = true;
- 
-    echo print_r($statement);
+<?php 
+	if($_SERVER['REQUEST_METHOD']=='POST'){
+		//POST로 보낸 값을 받아서 변수에 입력
+		$TITLE = $_POST['변수명'];
+		$SUBTITLE = $_POST['변수명'];
+		$PRICE = $_POST['변수명'];
+		$CONTENT = $_POST['변수명'];
+		
+		//DB 접속 스크립트를 불러옵니다.
+		require_once('db_conn.php');
+		
+		$sql = "UPDATE POST SET TITLE = '$TITLE', SUBTITLE = '$SUBTITLE', PRICE = '$PRICE', CONTENT = $CONTENT WHERE POSTNUM = $POSTNUM;";
+		
+		//테이블 업데이트
+		if(mysqli_query($con,$sql)) { //수정 성공 시
+			echo '게시글이 성공적으로 수정되었습니다.';
+		} else {
+			echo '게시글을 수정할 수 없습니다.';
+		}
+		
+		mysqli_close($con);
+	}
 ?>
