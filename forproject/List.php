@@ -5,11 +5,11 @@
 	$response = array();
 
 	while($row = mysqli_fetch_array($result)) {
-	//response["userID"]=$row[0] ....이런식으로 됨.
 			array_push($response, array("TITLE"=>$row[1], "PRICE"=>$row[3], "WRITER"=>$row[5]));
+			// == response["TITLE"] = $row[1]
 		}
 
-	//response라는 변수명으로 JSON 타입으로 $response 내용을 출력
+	//response라는 변수명으로 JSON 타입인 $response 내용을 출력
 	echo json_encode(array("response"=>$response));
 
 	mysqli_close($con);
