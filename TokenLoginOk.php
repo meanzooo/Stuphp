@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $second="300"; //시간초 지정 60 = 1분 저는 넉넉히 5분으로 하겠습니다.
+    $second="300"; //시간초 지정 60 = 1분
     $time=date("YmdHis") -$_SESSION[tokensave];
     if(!$_SESSION[token] or !$_SESSION[tokensave] or !$_SESSION[fake] or $_POST[l_token]){echo "토큰이 유효하지 않습니다."; exit;}
     if($_SESSION[tokensave]-$_SESSION[fake]==$_POST[l_token]){}else {echo "토큰이 유효하지 않습니다."; exit;}
