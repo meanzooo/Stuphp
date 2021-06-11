@@ -5,7 +5,7 @@
 	$response = array();
 
 	while($row = mysqli_fetch_array($result)) {
-			array_push($response, array("TITLE"=>$row[1], "PRICE"=>$row[3], "WRITER"=>$row[5]));
+			array_push($response, array("POSTNUM"=>$row[0],"TITLE"=>$row[1], "PRICE"=>$row[3], "WRITER"=>$row[5], "DATE"=>$row[6]));
 			// == response["TITLE"] = $row[1]
 		}
 
